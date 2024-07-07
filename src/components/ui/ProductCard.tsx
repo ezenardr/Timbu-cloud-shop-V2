@@ -15,7 +15,7 @@ export default function ProductCard({image, subtitle, title, rating, price, like
   discount?: string
 }) {
   return (
-    <div className={'flex flex-col h-full min-h-[400px]'}>
+    <Link href={'/products/id'} className={'flex flex-col h-full min-h-[400px]'}>
       {/*card img*/}
       <div className={"bg-[#EAEAEA] flex items-center justify-center relative flex-1 rounded-[.8rem] mb-4"}>
         <Image src={image} alt={title}/>
@@ -40,6 +40,6 @@ export default function ProductCard({image, subtitle, title, rating, price, like
           <Link href={'/'} className={'btn-secondary'}>Add to Cart</Link>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

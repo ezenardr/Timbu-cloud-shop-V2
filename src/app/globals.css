@@ -43,7 +43,7 @@
 
 @layer base {
     .btn-primary {
-        @apply bg-primary py-[1.2rem] px-[1.6rem] rounded-[.8rem] text-white text-[1.5rem]
+        @apply bg-primary px-[1.6rem] py-[.8rem] rounded-[.8rem] text-white text-[1.5rem]
     }
 
     .btn-secondary {

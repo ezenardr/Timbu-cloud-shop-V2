@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
     <body className={`${roboto.className} bg-white max-w-[1440px] mx-auto`}><Header/>{children}<Footer/></body>
     </html>
   );
