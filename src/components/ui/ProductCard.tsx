@@ -37,7 +37,7 @@ export default function ProductCard({image, subtitle, title, rating, price, like
                     <div className={"h-[2px] w-full bg-black absolute left-0 top-1/2"}></div>
                 </div>}
           </div>
-          <Link href={'/'} className={'btn-secondary'}>Add to Cart</Link>
+          <Link href={'/cart'} className={'btn-secondary'}>Add to Cart</Link>
         </div>
       </div>
     </Link>
