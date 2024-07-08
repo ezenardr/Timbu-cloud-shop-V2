@@ -58,17 +58,17 @@ function Product({searchParams}: { searchParams: { [key: string]: string | strin
         </div>
         {/*  products images*/}
         <div className={'flex-1 hidden lg:grid grid-cols-3 gap-8'}>
-
-
           <div
-            className={"bg-[#EAEAEA] col-start-1 col-end-4 flex items-center justify-center rounded-[1rem] h-[300px]"}>
-            <Image className={'hover:scale-110 transition-all'} src={pairTrainerBlue}
+            className={"bg-[#EAEAEA] col-start-1 col-end-4 p-12 flex items-center justify-center h-[300px] rounded-[1rem] "}>
+            <Image width={240} className={'hover:scale-110 transition-all'} src={pairTrainerBlue}
                    alt={"Ego Vessel trainer blue 1"}/>
           </div>
-          <Image className={"bg-[#eaeaea] rounded-[1rem] p-10 hover:scale-110 transition-all h-[180px] w-[180px]"}
-                 src={pair1}
-                 alt={"Ego Vessel trainer blue 2"}/>
-          <Image className={"bg-[#eaeaea] rounded-[1rem] p-10 hover:scale-110 transition-all h-[180px] w-[180px]"}
+          <Image
+            className={"bg-[#eaeaea] rounded-[1rem] p-10 hover:scale-110 transition-all h-[180px] w-[180px]"}
+            src={pair1}
+            alt={"Ego Vessel trainer blue 2"}/>
+          <Image width={186}
+                 className={"bg-[#eaeaea] rounded-[1rem] p-10 hover:scale-110 transition-all h-[180px] w-[180px]"}
                  src={pair2}
                  alt={"Ego Vessel trainer blue 3"}/>
           <Image className={"bg-[#eaeaea] rounded-[1rem] p-10 hover:scale-110 transition-all h-[180px] w-[180px]"}

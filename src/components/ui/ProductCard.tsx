@@ -17,8 +17,9 @@ export default function ProductCard({image, subtitle, title, rating, price, like
   return (
     <Link href={'/products/id'} className={'flex flex-col h-full min-h-[400px]'}>
       {/*card img*/}
-      <div className={"bg-[#EAEAEA] flex items-center justify-center relative flex-1 rounded-[.8rem] mb-4"}>
-        <Image src={image} alt={title}/>
+      <div
+        className={"bg-[#EAEAEA] h-[300px] flex items-center justify-center relative flex-1 rounded-[.8rem] mb-4"}>
+        <Image src={image} width={290} height={300} alt={title}/>
         <Image src={liked ? wishActive : wishlist} alt={"Add to wishlist"}
                className={`absolute top-3 right-3 ${liked ? 'bg-[#D42620]' : 'bg-[#00000099]'}  w-[3rem] h-[3rem] p-[6px] rounded-full cursor-pointer hover:bg-[#D42620] transition-all`}/>
       </div>
