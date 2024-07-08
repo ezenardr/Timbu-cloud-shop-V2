@@ -10,8 +10,10 @@ import contact from "@/assets/icons/contact.svg"
 import phone from "@/assets/icons/smart-phone-02.svg"
 import delivery from "@/assets/icons/delivery-tracking-01.svg"
 import Link from "next/link";
+import ModalPayment from "@/components/ui/ModalPayment";
 
-function Checkout() {
+function Checkout({searchParams}: { searchParams: { [key: string]: string | undefined } }) {
+  const isModal = searchParams.modal || false
   const products = [
     {
       img: newblackSneak,
@@ -50,6 +52,9 @@ function Checkout() {
   ]
   return (
     <main className={"px-8 lg:px-56 mt-20 flex flex-col gap-[30px] "}>
+      {/*payment modal*/}
+      {isModal && <ModalPayment/>}
+      {/*end modal*/}
       {/*thumbnails*/}
       <div className={"flex items-center  divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
         <span className={'pr-[1rem]'}>Home</span>
@@ -158,7 +163,7 @@ function Checkout() {
       <div className={'flex items-center justify-between'}>
         <Link href={'/cart'}
               className={'btn-cancel'}>Cancel</Link>
-        <Link href={'/'} className={'btn-primary'}>Proceed to payment</Link>
+        <Link href={'/checkout?modal=true'} className={'btn-primary'}>Proceed to payment</Link>
       </div>
     </main>
   );

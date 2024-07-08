@@ -43,11 +43,11 @@
 
 @layer base {
     .btn-primary {
-        @apply bg-primary px-[1.6rem] py-[.8rem] rounded-[.8rem] text-white text-[1.5rem]
+        @apply bg-primary px-[1.6rem] py-[.8rem] rounded-[.8rem] text-white text-[1.5rem] transition-all hover:bg-primary-light hover:text-[#0072C6] disabled:bg-primary-light disabled:text-white
     }
 
     .btn-secondary {
-        @apply rounded-[.8rem] px-[1.6rem] py-[.8rem] bg-primary-light text-[1.5rem] font-semibold text-[#0072C6]
+        @apply rounded-[.8rem] px-[1.6rem] py-[.8rem] hover:bg-primary hover:text-white transition-all bg-primary-light text-[1.5rem] font-semibold text-[#0072C6]
     }
 
     .btn-cancel {
