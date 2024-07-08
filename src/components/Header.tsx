@@ -6,6 +6,9 @@ import menuIcon from '@/assets/icons/menu.svg'
 import close from '@/assets/icons/close.svg'
 import Link from "next/link";
 import {usePathname} from "next/navigation";
+import wishlist from "@/assets/icons/heart-black.svg"
+import cart from "@/assets/icons/cart-black.svg"
+import ArrowDown from "@/assets/icons/arrow-down-01.svg"
 
 function Header() {
   const [sticky, setSticky] = useState(false);
@@ -20,15 +23,7 @@ function Header() {
       path: "/products"
     },
     {
-      name: "Favourites",
-      path: "/favourites"
-    },
-    {
-      name: "Cart",
-      path: "/cart"
-    },
-    {
-      name: "Orders",
+      name: "My Orders",
       path: "/orders"
     }
   ]
@@ -52,7 +47,7 @@ function Header() {
     <header className={`${pathname === '/' && 'bg-[#F9F9F9]'} pt-4 lg:pt-8 ${sticky && "sticky"}`}
     >
       <div
-        className={'bg-[#EAEAEA] flex items-center w-[95vw] justify-between rounded-[1.6rem] py-[.8rem] lg:px-[3rem] px-[2rem] lg:w-[820px] mx-auto'}>
+        className={'bg-[#EAEAEA] flex items-center w-[95vw] justify-between rounded-[1.6rem] py-[1.6rem] lg:px-[3rem] px-[2rem] lg:w-[820px] mx-auto z-20'}>
         <Link href={'/'}>
           <Image src={logo} alt={"Logo style black"}/>
         </Link>
@@ -68,12 +63,27 @@ function Header() {
                 <Link href={path}>{name}</Link>
               </li>
             ))}
+            <li onClick={() => setIsMenuOpen(prev => !prev)}
+                className={`hover:text-primary transition-all lg:hidden ${isActive('/wishlist') ? "text-primary" : ''}`}>
+              <Link href={'/wishlist'}>Wishlist</Link>
+            </li>
+            <li onClick={() => setIsMenuOpen(prev => !prev)}
+                className={`hover:text-primary transition-all lg:hidden ${isActive('/cart') ? "text-primary" : ''}`}>
+              <Link href={'/cart'}>Cart</Link>
+            </li>
             <Link className={'btn-primary text-[2rem] px-12 lg:hidden'} href={'/'}>Sign Up</Link>
           </ul>
         </nav>
-        <div className={'text-dark flex items-center gap-[1rem] font-medium text-[1.5rem]'}>
-          <Link href={'/'} className={"py-[1.2rem] px-[1.6rem]"}>Login</Link>
-          <Link className={'btn-primary hidden md:block'} href={'/'}>Sign Up</Link>
+        <div className={'text-dark flex items-center gap-8 font-medium text-[1.5rem]'}>
+          <div className={"lg:flex gap-4 items-center hidden"}>
+            <Image src={wishlist} alt={"Wishlisht icon navigation"} className={"w-[24px]"}/>
+            <Image src={cart} alt={"Cart icon navigation"} className={"w-[24px]"}/>
+          </div>
+          <div className={"hidden lg:flex gap-4 items-center cursor-pointer"}>
+            <span
+              className={"font-semibold text-[1.2rem] text-white w-12 h-12 flex items-center justify-center rounded-full bg-primary"}>AD</span>
+            <Image src={ArrowDown} alt={"Arrow down icon navigation"} className={"w-[24px]"}/>
+          </div>
           <Image src={menuIcon} alt={"menu icon"} onClick={() => {
             setIsMenuOpen(prev => !prev)
           }}
