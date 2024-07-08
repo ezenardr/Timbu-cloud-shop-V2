@@ -6,7 +6,6 @@ import menuIcon from '@/assets/icons/menu.svg'
 import close from '@/assets/icons/close.svg'
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import wishlist from "@/assets/icons/heart-black.svg"
 import cart from "@/assets/icons/cart-black.svg"
 import ArrowDown from "@/assets/icons/arrow-down-01.svg"
 
@@ -76,8 +75,8 @@ function Header() {
         </nav>
         <div className={'text-dark flex items-center gap-8 font-medium text-[1.5rem]'}>
           <div className={"lg:flex gap-4 items-center hidden"}>
-            <Image src={wishlist} alt={"Wishlisht icon navigation"} className={"w-[24px]"}/>
-            <Image src={cart} alt={"Cart icon navigation"} className={"w-[24px]"}/>
+            {/*<Image src={wishlist} alt={"Wishlisht icon navigation"} className={"w-[24px]"}/>*/}
+            <Link href={'/cart'}><Image src={cart} alt={"Cart icon navigation"} className={"w-[24px]"}/></Link>
           </div>
           <div className={"hidden lg:flex gap-4 items-center cursor-pointer"}>
             <span
@@ -90,7 +89,6 @@ function Header() {
                  className={`${isMenuOpen ? 'hidden' : ''} lg:hidden w-[32px] cursor-pointer`}/>
         </div>
       </div>
-
     </header>
   );
 }

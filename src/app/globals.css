@@ -49,4 +49,8 @@
     .btn-secondary {
         @apply rounded-[.8rem] px-[1.6rem] py-[.8rem] bg-primary-light text-[1.5rem] font-semibold text-[#0072C6]
     }
+
+    .btn-cancel {
+        @apply text-[#2a2a2a] font-medium text-[1.5rem] bg-[#f9f9f9] py-[12px] px-[16px] rounded-[8px]
+    }
 }

@@ -88,7 +88,7 @@ export default function Home() {
             <input type={'text'} placeholder={'Search brand name, category, male, female etc...'}
                    className={'text[#68707A] bg-transparent w-full text-[1.5rem] outline-none'}/>
           </div>
-          <Link href={'/'} className={'btn-primary'}>Shop Now</Link>
+          <Link href={'/products'} className={'btn-primary'}>Shop Now</Link>
         </div>
       </section>
 

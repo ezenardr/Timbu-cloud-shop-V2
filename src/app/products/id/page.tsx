@@ -161,7 +161,7 @@ function Product({searchParams}: { searchParams: { [key: string]: string | strin
             </div>
             <div className={'flex gap-[1.6rem] items-center'}>
               <Link href={'/cart'} className={'btn-secondary'}>Add to Cart</Link>
-              <Link href={'/cart'} className={'btn-primary'}>Checkout</Link>
+              <Link href={'/checkout'} className={'btn-primary'}>Checkout</Link>
             </div>
           </div>
         </div>
