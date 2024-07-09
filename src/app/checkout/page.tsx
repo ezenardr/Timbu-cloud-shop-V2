@@ -11,9 +11,11 @@ import phone from "@/assets/icons/smart-phone-02.svg"
 import delivery from "@/assets/icons/delivery-tracking-01.svg"
 import {Link} from 'next-view-transitions'
 import ModalPayment from "@/components/ui/ModalPayment";
+import CheckoutSuccess from "@/components/ui/CheckoutSuccess";
 
 function Checkout({searchParams}: { searchParams: { [key: string]: string | undefined } }) {
   const isModal = searchParams.modal || false
+  const isSuccess = searchParams.success || false
   const products = [
     {
       img: newblackSneak,
@@ -54,6 +56,7 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
     <main className={"px-8 lg:px-56 mt-20 mb-8 flex flex-col gap-[30px] "}>
       {/*payment modal*/}
       {isModal && <ModalPayment/>}
+      {isSuccess && <CheckoutSuccess/>}
       {/*end modal*/}
       {/*thumbnails*/}
       <div className={"flex items-center  divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>

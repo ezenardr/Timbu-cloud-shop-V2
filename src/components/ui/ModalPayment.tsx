@@ -18,7 +18,6 @@ function ModalPayment() {
             <Link href={'/checkout'}><Image src={close} alt={'close modal btn icon'} width={20}/></Link>
           </div>
           {/*  info*/}
-
           <div
             className={'flex flex-col w-full h-[400px] overflow-scroll scrollbar-hide mb-[9rem] lg:mb-[9rem] gap-8 py-[1.6rem] px-8'}>
             {/*card*/}
@@ -56,7 +55,8 @@ function ModalPayment() {
             {/*  button*/}
           </div>
           <div className={'absolute bottom-0 py-12 px-8 flex bg-white w-full z-50'}>
-            <button className={'btn-primary w-full '} disabled>Proceed to payment</button>
+            <Link href={'/checkout?success=true'} className={'btn-primary flex justify-center w-full '}>Proceed to
+              payment</Link>
           </div>
         </div>
       </div>
