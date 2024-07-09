@@ -1,7 +1,7 @@
 import React from 'react';
 import Image, {StaticImageData} from "next/image";
 import star from "@/assets/icons/half-star-yellow.svg";
-import Link from "next/link";
+import {Link} from 'next-view-transitions'
 import wishlist from "@/assets/icons/heart.svg"
 import wishActive from "@/assets/icons/heart-full.svg"
 
