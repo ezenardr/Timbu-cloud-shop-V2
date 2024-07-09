@@ -45,9 +45,10 @@ function Cart() {
     },
   ]
   return (
-    <main className={"px-4 lg:px-56 mt-20 mb-60 "}>
+    <main className={"px-4 lg:px-56  mt-20 mb-60 "}>
       {/*thumbnails*/}
-      <div className={"flex items-center divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
+      <div
+        className={"flex items-center max-w-[850px] mx-auto divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
         <Link href={'/'} className={'pr-[1rem]'}>Home</Link>
         <Link href={'/cart'} className={'px-[1rem] font-medium text-primary text-[1.5rem]'}>My Cart</Link>
       </div>
@@ -114,12 +115,14 @@ function Cart() {
         </ul>
       </section>
       <footer
-        className={'px-8 lg:px-56 py-8 flex items-center justify-between bg-white shadow-2xl fixed w-full bottom-0 left-0'}>
-        <div className={'flex flex-col gap-4'}>
-          <span className={'text-[1.2rem] text-[#9d9d9d]'}>Total price</span>
-          <span className={'font-medium text-[1.9rem] text-[#2a2a2a]'}>₦ 185,000.00</span>
+        className={' py-8  bg-white shadow-2xl fixed w-full bottom-0 left-0'}>
+        <div className={'flex px-8 lg:px-0 items-center justify-between max-w-[850px] mx-auto'}>
+          <div className={'flex flex-col gap-4'}>
+            <span className={'text-[1.2rem] text-[#9d9d9d]'}>Total price</span>
+            <span className={'font-medium text-[1.9rem] text-[#2a2a2a]'}>₦ 185,000.00</span>
+          </div>
+          <Link href={'/checkout'} className={'btn-primary'}>Checkout</Link>
         </div>
-        <Link href={'/checkout'} className={'btn-primary'}>Checkout</Link>
       </footer>
     </main>
   );

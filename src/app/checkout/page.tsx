@@ -59,7 +59,7 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
       {isSuccess && <CheckoutSuccess/>}
       {/*end modal*/}
       {/*thumbnails*/}
-      <div className={"flex items-center  divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
+      <div className={"flex items-center  divide-x-2  py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
         <Link href={'/'} className={'pr-[1rem]'}>Home</Link>
         <Link href={'/cart'} className={'px-[1rem]'}>Cart</Link>
         <Link href={'/checkout'} className={'px-[1rem] font-medium text-primary text-[1.5rem]'}>Checkout</Link>
@@ -156,7 +156,15 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
           </div>
         </div>
       </div>
-      <div className={'flex items-center justify-between'}>
+      <footer
+        className={' py-8  bg-white shadow-2xl fixed w-full bottom-0 left-0'}>
+        <div className={'flex px-8 lg:px-0 items-center justify-between max-w-[1000px] mx-auto'}>
+          <Link href={'/cart'}
+                className={'btn-cancel'}>Cancel</Link>
+          <Link href={'/checkout?modal=true'} className={'btn-primary'}>Proceed</Link>
+        </div>
+      </footer>
+      <div className={'flex opacity-0 items-center justify-between'}>
         <Link href={'/cart'}
               className={'btn-cancel'}>Cancel</Link>
         <Link href={'/checkout?modal=true'} className={'btn-primary'}>Proceed</Link>

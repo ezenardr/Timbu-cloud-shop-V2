@@ -21,8 +21,9 @@ function ModalPayment() {
           <div
             className={'flex flex-col w-full h-[400px] overflow-scroll scrollbar-hide mb-[9rem] lg:mb-[9rem] gap-8 py-[1.6rem] px-8'}>
             {/*card*/}
-            <div className={'py-8 px-10'}>
-              <div className={'flex items-center justify-between'}>
+            <div className={''}>
+              <div
+                className={'flex border border-[#f9fafb] py-8 px-10 rounded-[8px] items-center justify-between'}>
                 <div className={'flex gap-4'}>
                   <Image src={mastercard} alt={'mastercard icon logo'}/>
                   <div className={'flex flex-col  text-[1.2rem] font-medium text-[#1d2939]'}>
@@ -32,23 +33,24 @@ function ModalPayment() {
                 </div>
                 <Image src={active} alt={"checkbox icon"}/>
               </div>
-              <p className={'text-primary text-[1.5rem] pt-4 opacity-20 font-semibold'}>Add a new Card</p>
+              <button disabled className={'text-primary text-[1.5rem] pt-4 opacity-20 font-semibold'}>Add a new Card
+              </button>
             </div>
             <form className={'flex-col flex gap-8'}>
               <div className={'flex flex-col gap-2'}>
                 <label htmlFor={'name'} className={'text-[1.2rem] text-[#2a2a2a]'}>Full name</label>
                 <input name={'name'} type={'text'} id={'name'} placeholder={'Enter your full name'}
-                       className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none'}/>
+                       className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none text-[1.2rem] font-medium text-[#2a2a2a] placeholder:font-normal'}/>
               </div>
               <div className={'flex flex-col gap-2'}>
                 <label htmlFor={'name'} className={'text-[1.2rem] text-[#2a2a2a]'}>Email address</label>
                 <input name={'name'} id={'name'} type={'email'} placeholder={'Enter your email address'}
-                       className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none'}/>
+                       className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none text-[1.2rem] font-medium text-[#2a2a2a] placeholder:font-normal'}/>
               </div>
               <div className={'flex flex-col gap-2'}>
                 <label htmlFor={'name'} className={'text-[1.2rem] text-[#2a2a2a]'}>Phone number</label>
                 <input name={'name'} id={'name'} type={'tel'} placeholder={'Enter your phone number'}
-                       className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none'}/>
+                       className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none text-[1.2rem] font-medium text-[#2a2a2a] placeholder:font-normal'}/>
               </div>
 
             </form>
