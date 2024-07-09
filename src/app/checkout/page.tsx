@@ -95,16 +95,9 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
                         <span className={"text-[1.5rem] text-[#555555] bg-[#f9f9f9] p-2"}>{size}</span>
                       </div>
                     </div>
-                    <div className={'flex items-center gap-[.8rem]'}>
-                      <div
-                        className={'flex gap-[.8rem] px-1 bg-[#f9f9f9] py-[4px]  text-[1.5rem] text-[#2a2a2a] rounded-[4px] w-[105px] items-center justify-between'}>
-                          <span className={'py-[4px] px-[8px] text-[1.8rem]'}>
-                              -
-                          </span>
-                        <span className={'bg-[#0072C61F] py-[4px] px-[8px] rounded-[2px]'}>{quantity}</span>
-                        <span className={'py-[4px] text-[1.8rem] px-[8px]'}
-                        >+</span>
-                      </div>
+                    <div className={'flex items-center gap-[1.6rem]'}>
+                      <span
+                        className={'bg-[#0072C61F] text-[1.5rem] text-[#2a2a2a] py-[4px] px-[8px] rounded-[2px]'}>{quantity}</span>
                       <p className={'font-medium text-[1.5rem]'}>₦ {price}</p>
                     </div>
                   </div>
