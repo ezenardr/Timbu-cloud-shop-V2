@@ -45,14 +45,14 @@ function Cart() {
     },
   ]
   return (
-    <main className={"px-4 lg:px-56 mt-20 mb-60"}>
+    <main className={"px-4 lg:px-56 mt-20 mb-60 "}>
       {/*thumbnails*/}
       <div className={"flex items-center divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
-        <span className={'pr-[1rem]'}>Home</span>
-        <span className={'px-[1rem] font-medium text-primary text-[1.5rem]'}>My Cart</span>
+        <Link href={'/'} className={'pr-[1rem]'}>Home</Link>
+        <Link href={'/cart'} className={'px-[1rem] font-medium text-primary text-[1.5rem]'}>My Cart</Link>
       </div>
 
-      <section className={"mt-12"}>
+      <section className={"mt-12 max-w-[850px] mx-auto"}>
         {/*cart list*/}
         <ul className={"flex flex-col gap-[1.6rem]"}>
           {products.map(({img, colorTitle, color, title, size, quantity, price}, key) => (

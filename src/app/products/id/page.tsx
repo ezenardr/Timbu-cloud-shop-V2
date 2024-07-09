@@ -41,10 +41,10 @@ function Product({searchParams}: { searchParams: { [key: string]: string | strin
     <main className={"px-8 lg:px-24 mt-20 flex flex-col gap-12"}>
       {/*  thumbnails*/}
       <div className={"hidden lg:flex items-center divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
-        <span className={'pr-[5rem]'}>All products</span>
-        <span className={'px-[5rem]'}>Iconic Casual Brand</span>
-        <span className={'px-[5rem]'}>Blue Ego</span>
-        <span className={'pl-[5rem] font-medium text-primary text-[1.5rem]'}>Ego Vessel</span>
+        <Link href={'/'} className={'pr-[5rem]'}>Home</Link>
+        <Link href={'/products'} className={'px-[5rem]'}>All Products</Link>
+        <Link href={'/products'} className={'px-[5rem]'}>Iconic Casual Brand</Link>
+        <Link href={'/products/id'} className={'pl-[5rem] font-medium text-primary text-[1.5rem]'}>Ego Vessel</Link>
       </div>
       <div className={"flex flex-col lg:flex-row gap-10"}>
         {/*carousel*/}

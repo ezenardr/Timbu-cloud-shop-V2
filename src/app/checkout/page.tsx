@@ -51,15 +51,15 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
     },
   ]
   return (
-    <main className={"px-8 lg:px-56 mt-20 flex flex-col gap-[30px] "}>
+    <main className={"px-8 lg:px-56 mt-20 mb-8 flex flex-col gap-[30px] "}>
       {/*payment modal*/}
       {isModal && <ModalPayment/>}
       {/*end modal*/}
       {/*thumbnails*/}
       <div className={"flex items-center  divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
-        <span className={'pr-[1rem]'}>Home</span>
-        <span className={'px-[1rem]'}>Cart</span>
-        <span className={'px-[1rem] font-medium text-primary text-[1.5rem]'}>Checkout</span>
+        <Link href={'/'} className={'pr-[1rem]'}>Home</Link>
+        <Link href={'/cart'} className={'px-[1rem]'}>Cart</Link>
+        <Link href={'/checkout'} className={'px-[1rem] font-medium text-primary text-[1.5rem]'}>Checkout</Link>
       </div>
       {/*checkout*/}
       <div className={'flex flex-col lg:flex-row gap-12'}>
@@ -163,7 +163,7 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
       <div className={'flex items-center justify-between'}>
         <Link href={'/cart'}
               className={'btn-cancel'}>Cancel</Link>
-        <Link href={'/checkout?modal=true'} className={'btn-primary'}>Proceed to payment</Link>
+        <Link href={'/checkout?modal=true'} className={'btn-primary'}>Proceed</Link>
       </div>
     </main>
   );

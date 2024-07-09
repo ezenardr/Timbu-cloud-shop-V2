@@ -24,6 +24,7 @@ import mana from "@/assets/img/mana-akbarzadegan-kLnlaZJ4SMA-unsplash-removebg-p
 import greenAirJordan from "@/assets/img/green-air-jordan-running.png"
 import newPairWhite from "@/assets/img/new-pair-white-sneakers-isolated-white.png"
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 function Page() {
   const products = [
@@ -161,56 +162,59 @@ function Page() {
     },
   ]
   return (
-    <main className={'px-8 lg:px-24 mt-20 flex flex-col items-center gap-12 overflow-x-hidden'}>
-      {/*  topbar*/}
-      <div className={'flex items-center justify-between w-full'}>
-        {/*actions*/}
-        <div className={'flex gap-[1.6rem]'}>
-          <button className={'bg-[#EAEAEA] py-[1.2rem] px-[1.6rem] rounded-[8px] text-[1.5rem] text-[#2a2a2a]'}>Filter
-          </button>
-          <button className={'bg-[#EAEAEA] py-[1.2rem] px-[1.6rem] rounded-[8px] text-[1.5rem] text-[#2a2a2a]'}>Sort
-          </button>
+    <>
+      <main className={'px-8 lg:px-24 mt-20 flex flex-col items-center gap-12 overflow-x-hidden'}>
+        {/*  topbar*/}
+        <div className={'flex items-center justify-between w-full'}>
+          {/*actions*/}
+          <div className={'flex gap-[1.6rem]'}>
+            <button className={'bg-[#EAEAEA] py-[1.2rem] px-[1.6rem] rounded-[8px] text-[1.5rem] text-[#2a2a2a]'}>Filter
+            </button>
+            <button className={'bg-[#EAEAEA] py-[1.2rem] px-[1.6rem] rounded-[8px] text-[1.5rem] text-[#2a2a2a]'}>Sort
+            </button>
+          </div>
+          {/*  end actions*/}
+          <ul className={' hidden text-[1.5rem] font-medium text-[#555555] lg:flex border-b-[1px]'}>
+            <li className={'py-[1.2rem] px-[1.6rem] text-[#2a2a2a] border-b-4 border-[#2a2a2a]'}>All Products</li>
+            <li className={'py-[1.2rem] px-[1.6rem]'}>Iconic Casual Brands</li>
+            <li className={'py-[1.2rem] px-[1.6rem]'}>Athletic/Sportswear Brands</li>
+            <li className={'py-[1.2rem] px-[1.6rem]'}>Luxury Fashion Brands</li>
+          </ul>
+          <div
+            className={'py-[1.2rem] px-[1.6rem] bg-[#ededed] border border-[#e4e4e4] rounded-[.8rem] flex gap-4 w-[208px] lg:w-[272px]'}>
+            <Image src={searcIcon} alt={"Search icon dark hero"}/>
+            <input type={'text'} placeholder={'Search'}
+                   className={'text[#68707A] bg-transparent w-full text-[1.5rem] outline-none'}/>
+          </div>
         </div>
-        {/*  end actions*/}
-        <ul className={' hidden text-[1.5rem] font-medium text-[#555555] lg:flex border-b-[1px]'}>
-          <li className={'py-[1.2rem] px-[1.6rem] text-[#2a2a2a] border-b-4 border-[#2a2a2a]'}>All Products</li>
-          <li className={'py-[1.2rem] px-[1.6rem]'}>Iconic Casual Brands</li>
-          <li className={'py-[1.2rem] px-[1.6rem]'}>Athletic/Sportswear Brands</li>
-          <li className={'py-[1.2rem] px-[1.6rem]'}>Luxury Fashion Brands</li>
-        </ul>
-        <div
-          className={'py-[1.2rem] px-[1.6rem] bg-[#ededed] border border-[#e4e4e4] rounded-[.8rem] flex gap-4 w-[208px] lg:w-[272px]'}>
-          <Image src={searcIcon} alt={"Search icon dark hero"}/>
-          <input type={'text'} placeholder={'Search'}
-                 className={'text[#68707A] bg-transparent w-full text-[1.5rem] outline-none'}/>
+        <div className={'overflow-x-scroll scrollbar-hide w-full lg:hidden'}>
+          <ul
+            className={' flex text-nowrap flex-nowrap px-8 text-[1.5rem] font-medium text-[#555555]  border-b-[1px]'}>
+            <li className={'py-[1.2rem] px-[1.6rem] text-[#2a2a2a] border-b-4 border-[#2a2a2a]'}>All Products</li>
+            <li className={'py-[1.2rem] px-[1.6rem]'}>Iconic Casual Brands</li>
+            <li className={'py-[1.2rem] px-[1.6rem]'}>Athletic/Sportswear Brands</li>
+            <li className={'py-[1.2rem] px-[1.6rem]'}>Luxury Fashion Brands</li>
+          </ul>
         </div>
-      </div>
-      <div className={'overflow-x-scroll scrollbar-hide w-full lg:hidden'}>
-        <ul
-          className={' flex text-nowrap flex-nowrap px-8 text-[1.5rem] font-medium text-[#555555]  border-b-[1px]'}>
-          <li className={'py-[1.2rem] px-[1.6rem] text-[#2a2a2a] border-b-4 border-[#2a2a2a]'}>All Products</li>
-          <li className={'py-[1.2rem] px-[1.6rem]'}>Iconic Casual Brands</li>
-          <li className={'py-[1.2rem] px-[1.6rem]'}>Athletic/Sportswear Brands</li>
-          <li className={'py-[1.2rem] px-[1.6rem]'}>Luxury Fashion Brands</li>
+        {/*  end topbar*/}
+
+        {/*  products*/}
+        <ul className={"grid w-full gap-[2rem] min-h-[400px] grid-cols-1 lg:grid-cols-3 items-center "}>
+          {products.map(({subtitle, rating, image, price, title, liked, discount}, key) => (
+            <li key={key}>
+              <ProductCard image={image}
+                           subtitle={subtitle}
+                           title={title}
+                           rating={rating}
+                           price={price} liked={liked} discount={discount}/>
+            </li>
+          ))}
+
         </ul>
-      </div>
-      {/*  end topbar*/}
-
-      {/*  products*/}
-      <ul className={"grid w-full gap-[2rem] min-h-[400px] grid-cols-1 lg:grid-cols-3 items-center "}>
-        {products.map(({subtitle, rating, image, price, title, liked, discount}, key) => (
-          <li key={key}>
-            <ProductCard image={image}
-                         subtitle={subtitle}
-                         title={title}
-                         rating={rating}
-                         price={price} liked={liked} discount={discount}/>
-          </li>
-        ))}
-
-      </ul>
-      <Link href={'/products'} className={'btn-primary'}>View more</Link>
-    </main>
+        <Link href={'/products'} className={'btn-primary'}>View more</Link>
+      </main>
+      <Footer/>
+    </>
   );
 }
 

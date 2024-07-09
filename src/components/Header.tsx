@@ -6,8 +6,6 @@ import menuIcon from '@/assets/icons/menu.svg'
 import close from '@/assets/icons/close.svg'
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import cart from "@/assets/icons/cart-black.svg"
-import ArrowDown from "@/assets/icons/arrow-down-01.svg"
 
 function Header() {
   const [sticky, setSticky] = useState(false);
@@ -22,8 +20,9 @@ function Header() {
       path: "/products"
     },
     {
-      name: "My Orders",
-      path: "/orders"
+      name: "Cart",
+      path: "/cart",
+      notification: "4"
     }
   ]
   const pathname = usePathname()
@@ -55,34 +54,21 @@ function Header() {
             className={`fixed z-20 top-0 left-0 bg-[#EAEAEA] w-full h-full flex flex-col gap-[4rem] justify-center text-[2rem] ${isMenuOpen ? '  translate-x-0' : 'translate-x-full'} transition-all lg:bg-none lg:translate-x-0 lg:relative lg:flex items-center lg:flex-row lg:gap-[2.4rem] font-medium lg:text-[1.5rem] text-dark`}>
             <Image src={logo} alt={"Logo style black"} className={"lg:hidden absolute top-12 left-10"}/>
             <Image src={close} alt={"close menu"} onClick={() => setIsMenuOpen(prev => !prev)}
-                   className={"w-[24px] lg:hidden absolute top-10 right-10"}/>
-            {links.map(({name, path}, key) => (
+                   className={"w-[24px] cursor-pointer lg:hidden absolute top-10 right-10"}/>
+            {links.map(({name, path, notification}, key) => (
               <li key={key} onClick={() => setIsMenuOpen(prev => !prev)}
-                  className={`hover:text-primary transition-all ${isActive(path) ? "text-primary" : ''}`}>
+                  className={`hover:text-primary relative transition-all ${isActive(path) ? "text-primary font-semibold" : ' font-medium'}`}>
                 <Link href={path}>{name}</Link>
+                {notification &&
+                    <p className={'w-[16px] absolute top-[-8px] right-[-20px] h-[16px] bg-[#B42318] rounded-full text-white flex items-center justify-center p-4'}>{notification}</p>}
               </li>
             ))}
-            <li onClick={() => setIsMenuOpen(prev => !prev)}
-                className={`hover:text-primary transition-all lg:hidden ${isActive('/wishlist') ? "text-primary" : ''}`}>
-              <Link href={'/wishlist'}>Wishlist</Link>
-            </li>
-            <li onClick={() => setIsMenuOpen(prev => !prev)}
-                className={`hover:text-primary transition-all lg:hidden ${isActive('/cart') ? "text-primary" : ''}`}>
-              <Link href={'/cart'}>Cart</Link>
-            </li>
             <Link className={'btn-primary text-[2rem] px-12 lg:hidden'} href={'/'}>Sign Up</Link>
           </ul>
         </nav>
         <div className={'text-dark flex items-center gap-8 font-medium text-[1.5rem]'}>
-          <div className={"lg:flex gap-4 items-center hidden"}>
-            {/*<Image src={wishlist} alt={"Wishlisht icon navigation"} className={"w-[24px]"}/>*/}
-            <Link href={'/cart'}><Image src={cart} alt={"Cart icon navigation"} className={"w-[24px]"}/></Link>
-          </div>
-          <div className={"hidden lg:flex gap-4 items-center cursor-pointer"}>
-            <span
-              className={"font-semibold text-[1.2rem] text-white w-12 h-12 flex items-center justify-center rounded-full bg-primary"}>AD</span>
-            <Image src={ArrowDown} alt={"Arrow down icon navigation"} className={"w-[24px]"}/>
-          </div>
+          <span
+            className={"font-semibold cursor-pointer text-[1.2rem] text-white w-12 h-12 flex items-center justify-center rounded-full bg-primary"}>AD</span>
           <Image src={menuIcon} alt={"menu icon"} onClick={() => {
             setIsMenuOpen(prev => !prev)
           }}

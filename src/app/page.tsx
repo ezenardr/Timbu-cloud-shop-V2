@@ -24,6 +24,8 @@ import reebook from "@/assets/logos/reebok.svg"
 import jordan from "@/assets/logos/jordan.svg"
 import addidas from "@/assets/logos/adidas.svg"
 import balenciaga from "@/assets/logos/balenciaga.svg"
+import Footer from "@/components/Footer";
+import React from "react";
 
 export default function Home() {
   const featuredSneakers = [
@@ -281,6 +283,7 @@ export default function Home() {
         </div>
         <Link href={'/products'} className={'btn-primary'}>View all sneakers</Link>
       </section>
+      <Footer/>
     </>
   );
 }
