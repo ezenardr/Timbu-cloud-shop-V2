@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from '@/assets/logos/logo-black.svg'
 import menuIcon from '@/assets/icons/menu.svg'
 import close from '@/assets/icons/close.svg'
-import Link from "next/link";
+import {Link} from 'next-view-transitions'
 import {usePathname} from "next/navigation";
 
 function Header() {

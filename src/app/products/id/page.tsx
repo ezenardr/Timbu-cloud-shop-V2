@@ -7,7 +7,7 @@ import pair3 from "@/assets/img/pair-trainers (3) 1.png"
 import wishActive from "@/assets/icons/heart-full.svg";
 import star from "@/assets/icons/half-star-yellow.svg";
 import check from "@/assets/icons/check.svg";
-import Link from "next/link";
+import {Link} from 'next-view-transitions'
 import ProductCard from "@/components/ui/ProductCard";
 import newBlakSneak from "@/assets/img/new-black-sneakers-isolated-white-background.png"
 import sportRunning from "@/assets/img/sport-running-shoes.png"

@@ -23,7 +23,7 @@ import redConverse from "@/assets/img/productImageContainer.png"
 import mana from "@/assets/img/mana-akbarzadegan-kLnlaZJ4SMA-unsplash-removebg-preview.png"
 import greenAirJordan from "@/assets/img/green-air-jordan-running.png"
 import newPairWhite from "@/assets/img/new-pair-white-sneakers-isolated-white.png"
-import Link from "next/link";
+import {Link} from 'next-view-transitions'
 import Footer from "@/components/Footer";
 
 function Page() {

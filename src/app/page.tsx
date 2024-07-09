@@ -1,6 +1,6 @@
 import searcIcon from "@/assets/icons/search-dark.svg"
 import Image from "next/image";
-import Link from "next/link";
+import {Link} from 'next-view-transitions'
 import banner from "@/assets/img/new-arrivals-banner.png"
 import pairTrainnerBlue from "@/assets/img/pair-trainers-blue.png"
 import blackFashion from "@/assets/img/black-fashion-gumshoes.png"

@@ -4,7 +4,7 @@ import Image from "next/image";
 import pairTrainerblue from "@/assets/img/pair-trainers-blue.png"
 import luxuryFashion from "@/assets/img/Luxury Fashion Brands.png"
 import sportRunning from "@/assets/img/sport-running-shoes.png"
-import Link from "next/link";
+import {Link} from 'next-view-transitions'
 import close from "@/assets/icons/close.svg"
 
 function Cart() {

@@ -9,7 +9,7 @@ import mail from "@/assets/icons/mail-at-sign-01.svg"
 import contact from "@/assets/icons/contact.svg"
 import phone from "@/assets/icons/smart-phone-02.svg"
 import delivery from "@/assets/icons/delivery-tracking-01.svg"
-import Link from "next/link";
+import {Link} from 'next-view-transitions'
 import ModalPayment from "@/components/ui/ModalPayment";
 
 function Checkout({searchParams}: { searchParams: { [key: string]: string | undefined } }) {

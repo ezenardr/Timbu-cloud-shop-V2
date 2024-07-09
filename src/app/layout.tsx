@@ -2,7 +2,8 @@ import type {Metadata} from "next";
 import {Roboto_Flex} from "next/font/google";
 import "./globals.css";
 import React from "react";
-import Layout from "@/components/ui/Layout";
+import {ViewTransitions} from 'next-view-transitions'
+import Header from "@/components/Header";
 
 const roboto = Roboto_Flex({subsets: ["latin"]});
 
@@ -17,9 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-    <body className={`${roboto.className} bg-white max-w-[1440px] mx-auto`}>
-    <Layout>{children}</Layout></body>
-    </html>
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+      <body className={`${roboto.className} bg-white max-w-[1440px] mx-auto`}>
+      <Header/>
+      {children}
+      </body>
+      </html>
+    </ViewTransitions>
   );
 }
