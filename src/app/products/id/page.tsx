@@ -166,8 +166,8 @@ function Product({searchParams}: { searchParams: { [key: string]: string | strin
           </div>
         </div>
       </div>
-      <section className={'flex flex-col items-center gap-10 pt-[9.6rem]'}>
-        <h2 className={'text-[3.7rem] font-medium text-black'}>More From Ego</h2>
+      <section className={'flex flex-col lg:items-center gap-10 pt-[9.6rem] pb-8'}>
+        <h2 className={'text-[3.7rem] font-medium text-black text-center'}>More From Ego</h2>
         <ul className={'grid grid-cols-1 gap-8 lg:grid-cols-3'}>
           {moreProduct.map(({image, rating, subtitle, title, price}, id) => (
             <ProductCard key={id} image={image}
