@@ -13,6 +13,7 @@ import newBlakSneak from "@/assets/img/new-black-sneakers-isolated-white-backgro
 import sportRunning from "@/assets/img/sport-running-shoes.png"
 import airJordanRunning from "@/assets/img/air-jordan-running-sneakers.png"
 import {Carousel} from "flowbite-react";
+import luxuryAdidas from "@/assets/img/luxury-adidas.png";
 
 function Product({searchParams}: { searchParams: { [key: string]: string | string[] | undefined } }) {
   let quantity = searchParams.quantity || 2
@@ -35,16 +36,21 @@ function Product({searchParams}: { searchParams: { [key: string]: string | strin
       title: "Ego Runner",
       rating: "4.5 (100 sold)",
       price: "32,500.00",
+    }, {
+      image: luxuryAdidas,
+      subtitle: "Luxury Fashion Brands",
+      title: "Air Jordan running sneaker",
+      rating: "4.5 (100 sold)",
+      price: "48,500.00",
     },
   ]
   return (
     <main className={"px-8 lg:px-24 mt-20 flex flex-col gap-12"}>
       {/*  thumbnails*/}
       <div className={"hidden lg:flex items-center divide-x-2 px-[1.6rem] py-[1.2rem] text-[1.2rem] text-[#9d9d9d]"}>
-        <Link href={'/'} className={'pr-[5rem]'}>Home</Link>
-        <Link href={'/products'} className={'px-[5rem]'}>All Products</Link>
-        <Link href={'/products'} className={'px-[5rem]'}>Iconic Casual Brand</Link>
-        <Link href={'/products/id'} className={'pl-[5rem] font-medium text-primary text-[1.5rem]'}>Ego Vessel</Link>
+        <Link href={'/products'} className={'px-[1rem]'}>All Products</Link>
+        <Link href={'/products'} className={'px-[1rem]'}>Iconic Casual Brand</Link>
+        <Link href={'/products/id'} className={'pl-[1rem] font-medium text-primary text-[1.5rem]'}>Ego Vessel</Link>
       </div>
       <div className={"flex flex-col lg:flex-row gap-10"}>
         {/*carousel*/}
@@ -168,7 +174,7 @@ function Product({searchParams}: { searchParams: { [key: string]: string | strin
       </div>
       <section className={'flex flex-col lg:items-center gap-10 pt-[9.6rem] pb-8'}>
         <h2 className={'text-[3.7rem] font-medium text-black text-center'}>More From Ego</h2>
-        <ul className={'grid grid-cols-1 gap-8 lg:grid-cols-3'}>
+        <ul className={'flex flex-col lg:flex-row gap-8'}>
           {moreProduct.map(({image, rating, subtitle, title, price}, id) => (
             <ProductCard key={id} image={image}
                          subtitle={subtitle}
