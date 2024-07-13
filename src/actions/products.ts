@@ -5,9 +5,9 @@ const orgID = process.env.NEXT_PUBLIC_ORG_ID ?? ''
 const appID = process.env.NEXT_PUBLIC_APP_ID ?? ''
 const apiKEY = process.env.NEXT_PUBLIC_API_KEY ?? ''
 
-export async function getProducts(size = 12) {
+export async function getProducts(size = 12, page = 1) {
   try {
-    const response = await fetch(`${apiURL}/products?organization_id=${orgID}&Appid=${appID}&Apikey=${apiKEY}&size=${size}`)
+    const response = await fetch(`${apiURL}/products?organization_id=${orgID}&Appid=${appID}&Apikey=${apiKEY}&size=${size}&page=${page}`)
     // const json = await response.json()
     // console.log(json)
     return await response.json()

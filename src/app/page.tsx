@@ -2,20 +2,6 @@ import searcIcon from "@/assets/icons/search-dark.svg"
 import Image from "next/image";
 import {Link} from 'next-view-transitions'
 import banner from "@/assets/img/new-arrivals-banner.png"
-import pairTrainnerBlue from "@/assets/img/pair-trainers-blue.png"
-import blackFashion from "@/assets/img/black-fashion-gumshoes.png"
-import airJordan from "@/assets/img/air-jordan-running-sneakers.png"
-import luxuryFashion from "@/assets/img/Luxury Fashion Brands.png"
-import colorfulUnisex from "@/assets/img/colorful-slip-unisex-streetwear-sneakers-fashion.png"
-import whiteSneakers from "@/assets/img/white-sneaker-athletic.png"
-import LuxuryAdidas from "@/assets/img/luxury-adidas.png"
-import GreenAirJordan from "@/assets/img/green-air-jordan-running.png"
-import greenJordan from "@/assets/img/green-air-jordan-running.png"
-import RSX from "@/assets/img/rs-x-women-sneakers.png"
-import brownJordan from "@/assets/img/brown-air-jordan.png"
-import newBalance from "@/assets/img/new-balance-57.png"
-import newBalanceV2 from "@/assets/img/v2-new-balance.png"
-import converse from "@/assets/img/converse-black.png"
 import ProductCard from "@/components/ui/ProductCard";
 import nike from "@/assets/logos/nike.svg"
 import gucci from "@/assets/logos/gucci.svg"
@@ -26,52 +12,10 @@ import addidas from "@/assets/logos/adidas.svg"
 import balenciaga from "@/assets/logos/balenciaga.svg"
 import Footer from "@/components/Footer";
 import React from "react";
+import {getProducts} from "@/actions/products";
 
 export default async function Home() {
-  const featuredSneakers = [
-    {
-      image: RSX,
-      subtitle: "Iconic Casual Brands",
-      title: "RS-X Women sneaker",
-      rating: "4.5 (100 sold)",
-      price: "37,000.00"
-    },
-    {
-      image: brownJordan,
-      subtitle: "Iconic Casual Brands",
-      title: "Air Jordan running sneaker",
-      rating: "4.5 (100 sold)",
-      price: "37,000.00"
-    },
-    {
-      image: newBalance,
-      subtitle: "Luxury Fashion Brands",
-      title: "New Balance 574T",
-      rating: "4.5 (100 sold)",
-      price: "52,000.00"
-    },
-    {
-      image: greenJordan,
-      subtitle: "Athletic/Sportswear",
-      title: "Air Jordan running sneaker",
-      rating: "4.5 (100 sold)",
-      price: "32,500.00"
-    },
-    {
-      image: newBalanceV2,
-      subtitle: "Iconic Casual Brands",
-      title: "New Balance 574 V2",
-      rating: "4.5 (100 sold)",
-      price: "37,000.00"
-    },
-    {
-      image: converse,
-      subtitle: "Iconic Casual Brands",
-      title: "Air Jordan running sneaker",
-      rating: "4.5 (100 sold)",
-      price: "37,000.00"
-    }
-  ];
+  const products = await getProducts(16);
   return (
     <>
       {/*Hero section*/}
@@ -215,31 +159,33 @@ export default async function Home() {
         <div className={"grid gap-[2rem] grid-cols-1 lg:grid-cols-4 items-center "}>
           <Image className={'lg:col-start-1 lg:col-end-3'} src={banner} alt={"Shoues banner new arrivals"}/>
           {/*card*/}
-          <ProductCard image={pairTrainnerBlue} subtitle={"Iconic Casual Brands"} title={"Ego Vessel"}
-                       rating={"4.5 (100 sold)"} price={"37, 000.00"} liked={false} link={'/'}/>
-          <ProductCard image={blackFashion}
-                       subtitle={"Luxury Fashion Brands"}
-                       title={"Air Jordan running sneaker"}
-                       rating={"4.5 (100 sold)"}
-                       price={"52,000.00"} liked={true} link={'/'}/>
+          {products.items.slice(0, 2).map((product: any, key: number) => {
+            const imageUrl = product.photos[0]?.url
+            const price = product.current_price[0].HTG[0]
+            return (
+              <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
+                           subtitle={"Iconic Casual Brands"} title={product.name}
+                           rating={"4.5 (100 sold)"} price={price} liked={false}
+                           product={product}
+                           link={`/products/${product.id}?org_id=${product.organization_id}`}/>
+
+            )
+          })}
 
         </div>
         <div className={"grid w-full gap-[2rem] min-h-[400px] grid-cols-1 lg:grid-cols-3 items-center "}>
-          <ProductCard image={airJordan}
-                       subtitle={"Athletic/Sportswear"}
-                       title={"Air Jordan running sneaker"}
-                       rating={"4.5 (100 sold)"}
-                       price={"32,000.00"} liked={false} link={'/'}/>
-          <ProductCard image={luxuryFashion}
-                       subtitle={"Luxury Fashion Brands"}
-                       title={"Air Jordan running sneaker"}
-                       rating={"4.5 (100 sold)"}
-                       price={"52,000.00"} liked={false} link={'/'}/>
-          <ProductCard image={colorfulUnisex}
-                       subtitle={"Iconic Casual Brands"}
-                       title={"Air Jordan running sneaker"}
-                       rating={"4.5 (100 sold)"}
-                       price={"37,000.00"} liked={false} link={'/'}/>
+          {products.items.slice(3, 6).map((product: any, key: number) => {
+            const imageUrl = product.photos[0]?.url
+            const price = product.current_price[0].HTG[0]
+            return (
+              <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
+                           subtitle={"Iconic Casual Brands"} title={product.name}
+                           rating={"4.5 (100 sold)"} price={price} liked={false}
+                           product={product}
+                           link={`/products/${product.id}?org_id=${product.organization_id}`}/>
+
+            )
+          })}
         </div>
       </section>
 
@@ -247,24 +193,18 @@ export default async function Home() {
       <section className={"pt-[9.6rem] px-8 lg:px-24 flex flex-col gap-10 items-center justify-center"}>
         <h2 className={"font-medium text-[3.7rem] text-black"}>Our Special Offers</h2>
         <div className={"grid w-full gap-[2rem] min-h-[400px] grid-cols-1 lg:grid-cols-3 items-center "}>
-          <ProductCard image={whiteSneakers}
-                       subtitle={"Athletic/Sportswear"}
-                       title={"Air Jordan running sneaker"}
-                       rating={"4.5 (100 sold)"}
-                       price={"28,000.00"} link={'/'}/>
+          {products.items.slice(6, 9).map((product: any, key: number) => {
+            const imageUrl = product.photos[0]?.url
+            const price = product.current_price[0].HTG[0]
+            return (
+              <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
+                           subtitle={"Iconic Casual Brands"} title={product.name}
+                           rating={"4.5 (100 sold)"} price={price} liked={false}
+                           product={product}
+                           link={`/products/${product.id}?org_id=${product.organization_id}`}/>
 
-          <ProductCard image={LuxuryAdidas}
-                       subtitle={"Luxury Fashion Brands"}
-                       title={"Air Jordan running sneaker"}
-                       rating={"4.5 (100 sold)"}
-                       price={"48,500.00"}
-                       link={'/'}
-                       liked={false}/>
-          <ProductCard image={GreenAirJordan}
-                       subtitle={"Athletic/Sportswear"}
-                       title={"Air Jordan running sneaker"}
-                       rating={"4.5 (100 sold)"}
-                       price={"28,000.00"} link={'/'} liked={false}/>
+            )
+          })}
         </div>
       </section>
 
@@ -272,14 +212,18 @@ export default async function Home() {
       <section className={"pt-[9.6rem] px-8 lg:px-24 flex flex-col gap-10 items-center justify-center"}>
         <h2 className={"font-medium text-[3.7rem] text-black"}>Featured Sneakers</h2>
         <div className={"grid w-full gap-[2rem] grid-cols-1 lg:grid-cols-3 items-center "}>
-          {featuredSneakers.map(({image, rating, subtitle, price, title}) => (
-            <ProductCard key={title} image={image}
-                         subtitle={subtitle}
-                         title={title}
-                         rating={rating}
-                         link={'/'}
-                         price={price}/>
-          ))}
+          {products.items.slice(9, 15).map((product: any, key: number) => {
+            const imageUrl = product.photos[0]?.url
+            const price = product.current_price[0].HTG[0]
+            return (
+              <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
+                           subtitle={"Iconic Casual Brands"} title={product.name}
+                           rating={"4.5 (100 sold)"} price={price} liked={false}
+                           product={product}
+                           link={`/products/${product.id}?org_id=${product.organization_id}`}/>
+
+            )
+          })}
         </div>
         <Link href={'/products'} className={'btn-primary'}>View all sneakers</Link>
       </section>

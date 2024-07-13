@@ -1,5 +1,5 @@
 'use client'
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {useQuery} from "@tanstack/react-query";
 import {getProductById} from "@/actions/products";
 import {Carousel} from "flowbite-react";
@@ -14,7 +14,6 @@ function ProductComponent({org_id, product_id}: { org_id: string, product_id: st
     queryKey: ['product'],
     queryFn: () => getProductById(product_id, org_id)
   })
-  const [quantity, setQuantity] = useState(5)
   const imageUrl = 'https://api.timbu.cloud/images/'
   let USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -73,7 +72,7 @@ function ProductComponent({org_id, product_id}: { org_id: string, product_id: st
             <h1 className={'font-medium text-[3.7rem] text-[#2a2a2a]'}>{product.name}</h1>
             <Image src={wishActive} alt={"Added to wishlist"}
                    className={`bg-[#D42620] absolute top-0 right-0  w-[3rem] h-[3rem] p-[6px] rounded-full cursor-pointer hover:bg-[#D42620] transition-all`}/>
-            <span className={'font-medium text-[1.9rem]'}># 37,000.00</span>
+            <span className={'font-medium text-[1.9rem]'}>{USDollar.format(Number(product.current_price))}</span>
           </div>
           <span className={'text-[1.2rem] text-[#555555] font-medium flex gap-2'}>100 sold
             <Image src={star}

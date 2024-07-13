@@ -25,7 +25,7 @@ export default function ProductCard({
   price: string
   liked?: boolean
   link: string
-  product?: any
+  product: any
 }) {
   let USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
