@@ -55,7 +55,7 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
                              className={"hover:scale-110 transition-all "}/>
                     </div>
                     <div className={'flex flex-col gap-4'}>
-                      <span className={"font-medium text-[1.9rem] text-[#2a2a2a]"}>name</span>
+                      <span className={"font-medium text-[1.9rem] text-[#2a2a2a]"}>{name}</span>
                       <div className={'flex items-center gap-[1.6rem]'}>
                       <span
                         className={'bg-[#0072C61F] text-[1.5rem] text-[#2a2a2a] py-[4px] px-[8px] rounded-[2px]'}>{quantity}</span>
