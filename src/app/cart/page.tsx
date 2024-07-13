@@ -47,7 +47,7 @@ function Cart() {
                         <button onClick={() => setItems((prev: any) => {
                           prev.map((p: any) => {
                             if (p.id === product.id) {
-                              return p.quantity > 1 ? p.quantity = p.quantity - 0.5 : null
+                              return p.quantity > 1 ? p.quantity = p.quantity - 1 : null
                             }
                           })
                           return [...prev]
@@ -58,7 +58,7 @@ function Cart() {
                         <button onClick={() => setItems((prev: any) => {
                           prev.map((p: any) => {
                             if (p.id === product.id) {
-                              return p.quantity = p.quantity + 0.5
+                              return p.quantity = p.quantity + 1
                             }
                           })
                           return [...prev]
@@ -82,7 +82,7 @@ function Cart() {
                     <button onClick={() => setItems((prev: any) => {
                       prev.map((p: any) => {
                         if (p.id === product.id) {
-                          return p.quantity > 1 ? p.quantity = p.quantity - 0.5 : null
+                          return p.quantity > 1 ? p.quantity = p.quantity - 1 : null
                         }
                       })
                       return [...prev]
@@ -93,7 +93,7 @@ function Cart() {
                     <button onClick={() => setItems((prev: any) => {
                       prev.map((p: any) => {
                         if (p.id === product.id) {
-                          return p.quantity = p.quantity + 0.5
+                          return p.quantity = p.quantity + 1
                         }
                       })
                       return [...prev]

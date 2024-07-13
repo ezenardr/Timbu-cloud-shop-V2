@@ -100,7 +100,7 @@ function ProductComponent({org_id, product_id}: { org_id: string, product_id: st
                       onClick={() => setItems((prev: any) => {
                         prev.map((p: any) => {
                           if (p.id === product.id) {
-                            return p.quantity > 1 ? p.quantity = p.quantity - 0.5 : null
+                            return p.quantity > 1 ? p.quantity = p.quantity - 1 : null
                           }
                         })
                         return [...prev]
@@ -110,7 +110,7 @@ function ProductComponent({org_id, product_id}: { org_id: string, product_id: st
               <button className={'py-[4px] px-[8px] cursor-pointer'} onClick={() => setItems((prev: any) => {
                 prev.map((p: any) => {
                   if (p.id === product.id) {
-                    return p.quantity = p.quantity + 0.5
+                    return p.quantity = p.quantity + 1
                   }
                 })
                 return [...prev]
