@@ -25,8 +25,17 @@ import greenAirJordan from "@/assets/img/green-air-jordan-running.png"
 import newPairWhite from "@/assets/img/new-pair-white-sneakers-isolated-white.png"
 import {Link} from 'next-view-transitions'
 import Footer from "@/components/Footer";
+import ProductsList from "@/app/products/ProductsList";
+import {dehydrate, HydrationBoundary, QueryClient} from '@tanstack/react-query'
+import {getProducts} from "@/actions/products";
 
-function Page() {
+async function Page() {
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts()
+  })
+
   const products = [
     {
       image: trainerBlue,
@@ -199,18 +208,12 @@ function Page() {
         {/*  end topbar*/}
 
         {/*  products*/}
-        <ul className={"grid w-full gap-[2rem] min-h-[400px] grid-cols-1 lg:grid-cols-3 items-center "}>
-          {products.map(({subtitle, rating, image, price, title, liked, discount}, key) => (
-            <li key={key}>
-              <ProductCard image={image}
-                           subtitle={subtitle}
-                           title={title}
-                           rating={rating}
-                           price={price} liked={liked} discount={discount}/>
-            </li>
-          ))}
 
-        </ul>
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <ProductsList/>
+
+        </HydrationBoundary>
+
         <Link href={'/products'} className={'btn-primary'}>View more</Link>
       </main>
       <Footer/>

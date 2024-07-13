@@ -1,15 +1,18 @@
 'use client'
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Image from "next/image";
 import logo from '@/assets/logos/logo-black.svg'
 import menuIcon from '@/assets/icons/menu.svg'
 import close from '@/assets/icons/close.svg'
 import {Link} from 'next-view-transitions'
 import {usePathname} from "next/navigation";
+import {CartContext} from "@/lib/CartProvider";
 
 function Header() {
   const [sticky, setSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // @ts-ignore
+  const {items} = useContext(CartContext)
   const links = [
     {
       name: "Home",
@@ -22,10 +25,11 @@ function Header() {
     {
       name: "Cart",
       path: "/cart",
-      notification: "4"
+      notification: items.length > 0 ? items.length : false
     }
   ]
   const pathname = usePathname()
+
 
   function toggleScticky() {
     if (window.scrollY > 50) setSticky(true);

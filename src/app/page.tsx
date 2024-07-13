@@ -27,7 +27,7 @@ import balenciaga from "@/assets/logos/balenciaga.svg"
 import Footer from "@/components/Footer";
 import React from "react";
 
-export default function Home() {
+export default async function Home() {
   const featuredSneakers = [
     {
       image: RSX,
@@ -216,12 +216,12 @@ export default function Home() {
           <Image className={'lg:col-start-1 lg:col-end-3'} src={banner} alt={"Shoues banner new arrivals"}/>
           {/*card*/}
           <ProductCard image={pairTrainnerBlue} subtitle={"Iconic Casual Brands"} title={"Ego Vessel"}
-                       rating={"4.5 (100 sold)"} price={"37, 000.00"} liked={false}/>
+                       rating={"4.5 (100 sold)"} price={"37, 000.00"} liked={false} link={'/'}/>
           <ProductCard image={blackFashion}
                        subtitle={"Luxury Fashion Brands"}
                        title={"Air Jordan running sneaker"}
                        rating={"4.5 (100 sold)"}
-                       price={"52,000.00"} liked={true}/>
+                       price={"52,000.00"} liked={true} link={'/'}/>
 
         </div>
         <div className={"grid w-full gap-[2rem] min-h-[400px] grid-cols-1 lg:grid-cols-3 items-center "}>
@@ -229,17 +229,17 @@ export default function Home() {
                        subtitle={"Athletic/Sportswear"}
                        title={"Air Jordan running sneaker"}
                        rating={"4.5 (100 sold)"}
-                       price={"32,000.00"} liked={false}/>
+                       price={"32,000.00"} liked={false} link={'/'}/>
           <ProductCard image={luxuryFashion}
                        subtitle={"Luxury Fashion Brands"}
                        title={"Air Jordan running sneaker"}
                        rating={"4.5 (100 sold)"}
-                       price={"52,000.00"} liked={false}/>
+                       price={"52,000.00"} liked={false} link={'/'}/>
           <ProductCard image={colorfulUnisex}
                        subtitle={"Iconic Casual Brands"}
                        title={"Air Jordan running sneaker"}
                        rating={"4.5 (100 sold)"}
-                       price={"37,000.00"} liked={false}/>
+                       price={"37,000.00"} liked={false} link={'/'}/>
         </div>
       </section>
 
@@ -251,21 +251,20 @@ export default function Home() {
                        subtitle={"Athletic/Sportswear"}
                        title={"Air Jordan running sneaker"}
                        rating={"4.5 (100 sold)"}
-                       discount={"32,500.00"}
-                       price={"28,000.00"}/>
+                       price={"28,000.00"} link={'/'}/>
 
           <ProductCard image={LuxuryAdidas}
                        subtitle={"Luxury Fashion Brands"}
                        title={"Air Jordan running sneaker"}
                        rating={"4.5 (100 sold)"}
                        price={"48,500.00"}
-                       discount={"52,000.00"}
+                       link={'/'}
                        liked={false}/>
           <ProductCard image={GreenAirJordan}
                        subtitle={"Athletic/Sportswear"}
                        title={"Air Jordan running sneaker"}
                        rating={"4.5 (100 sold)"}
-                       price={"28,000.00"} discount={"32,500.00"} liked={false}/>
+                       price={"28,000.00"} link={'/'} liked={false}/>
         </div>
       </section>
 
@@ -278,6 +277,7 @@ export default function Home() {
                          subtitle={subtitle}
                          title={title}
                          rating={rating}
+                         link={'/'}
                          price={price}/>
           ))}
         </div>

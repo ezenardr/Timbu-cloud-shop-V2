@@ -4,6 +4,8 @@ import "./globals.css";
 import React from "react";
 import {ViewTransitions} from 'next-view-transitions'
 import Header from "@/components/Header";
+import QueryProvider from "@/lib/QueryProvider";
+import {CartProvider} from "@/lib/CartProvider";
 
 const roboto = Roboto_Flex({subsets: ["latin"]});
 
@@ -19,12 +21,16 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
-      <body className={`${roboto.className} bg-white max-w-[1440px] mx-auto`}>
-      <Header/>
-      {children}
-      </body>
-      </html>
+      <QueryProvider>
+        <CartProvider>
+          <html lang="en" suppressHydrationWarning>
+          <body className={`${roboto.className} bg-white max-w-[1440px] mx-auto`}>
+          <Header/>
+          {children}
+          </body>
+          </html>
+        </CartProvider>
+      </QueryProvider>
     </ViewTransitions>
   );
 }
