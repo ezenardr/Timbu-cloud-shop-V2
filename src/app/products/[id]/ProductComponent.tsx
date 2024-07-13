@@ -81,14 +81,7 @@ function ProductComponent({org_id, product_id}: { org_id: string, product_id: st
           {/*description*/}
           <div>
             <span className={'font-medium text-[#2a2a2a] text-[1.9rem]'}>Description</span>
-            <p className={'text-[1.5rem] text-[#555555] text-justify'}>The Ego Vessel is the perfect addition to your
-              casual
-              wardrobe. Pair them with jeans, joggers, or even a dress for an effortlessly cool look that&apos;s sure
-              to
-              make
-              a statement. Whether you&apos;re running errands or hitting the town, these versatile sneakers will keep
-              you
-              feeling and looking your best.</p>
+            <p className={'text-[1.5rem] text-[#555555] text-justify'}>{product.description}</p>
           </div>
           {/*  Quantity*/}
           <div>
