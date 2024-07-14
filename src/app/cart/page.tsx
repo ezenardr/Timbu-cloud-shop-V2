@@ -40,7 +40,7 @@ function Cart() {
                            className={"hover:scale-110 transition-all "}/>
                   </div>
                   <div className={'flex flex-col gap-4'}>
-                    <span className={"font-medium text-[1.9rem] text-[#2a2a2a]"}>Ego Raid</span>
+                    <span className={"font-medium text-[1.9rem] text-[#2a2a2a]"}>{product.name}</span>
                     <div className={'flex lg:hidden items-center gap-[.8rem]'}>
                       <div
                         className={'flex gap-[.8rem] px-1 bg-[#f9f9f9] py-[4px]  text-[1.5rem] text-[#2a2a2a] rounded-[4px] w-[105px] items-center justify-between'}>

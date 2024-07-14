@@ -39,17 +39,22 @@ function ModalPayment() {
             <form className={'flex-col flex gap-8'}>
               <div className={'flex flex-col gap-2'}>
                 <label htmlFor={'name'} className={'text-[1.2rem] text-[#2a2a2a]'}>Full name</label>
-                <input name={'name'} type={'text'} id={'name'} placeholder={'Enter your full name'}
+                <input name={'name'} type={'text'} id={'name'} placeholder={'Ada Dennis'}
                        className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none text-[1.2rem] font-medium text-[#2a2a2a] placeholder:font-normal'}/>
               </div>
               <div className={'flex flex-col gap-2'}>
-                <label htmlFor={'name'} className={'text-[1.2rem] text-[#2a2a2a]'}>Email address</label>
-                <input name={'name'} id={'name'} type={'email'} placeholder={'Enter your email address'}
+                <label htmlFor={'email'} className={'text-[1.2rem] text-[#2a2a2a]'}>Email address</label>
+                <input name={'email'} id={'email'} type={'email'} placeholder={'ada@gmail.com'}
                        className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none text-[1.2rem] font-medium text-[#2a2a2a] placeholder:font-normal'}/>
               </div>
               <div className={'flex flex-col gap-2'}>
-                <label htmlFor={'name'} className={'text-[1.2rem] text-[#2a2a2a]'}>Phone number</label>
-                <input name={'name'} id={'name'} type={'tel'} placeholder={'Enter your phone number'}
+                <label htmlFor={'phone'} className={'text-[1.2rem] text-[#2a2a2a]'}>Phone number</label>
+                <input name={'phone'} id={'phone'} type={'tel'} placeholder={'09100000000'}
+                       className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none text-[1.2rem] font-medium text-[#2a2a2a] placeholder:font-normal'}/>
+              </div>
+              <div className={'flex flex-col gap-2'}>
+                <label htmlFor={'delivery'} className={'text-[1.2rem] text-[#2a2a2a]'}>Delivery option</label>
+                <input name={'delivery'} id={'delivery'} type={'text'} placeholder={'Ikeja, Lagos'}
                        className={'placeholder:text-[#9d9d9d] placeholder:text-[1.2rem] p-[1.6rem] border border-[#e8eaeb] rounded-[8px] outline-none text-[1.2rem] font-medium text-[#2a2a2a] placeholder:font-normal'}/>
               </div>
 

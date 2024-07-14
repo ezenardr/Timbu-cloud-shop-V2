@@ -1,5 +1,5 @@
 'use client'
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import Image, {StaticImageData} from "next/image";
 import star from "@/assets/icons/half-star-yellow.svg";
 import {Link} from 'next-view-transitions'
@@ -16,14 +16,12 @@ export default function ProductCard({
                                       title,
                                       rating = '4.5 (100 sold)',
                                       price,
-                                      liked = false
                                     }: {
   image?: StaticImageData | string,
   subtitle?: string,
   title: string,
   rating?: string,
   price: string
-  liked?: boolean
   link: string
   product: any
 }) {
@@ -33,6 +31,7 @@ export default function ProductCard({
   });
   // @ts-ignore
   const {items, setItems} = useContext(CartContext)
+  const [liked, setLiked] = useState(false)
   return (
     <div className={'flex flex-col h-full min-h-[400px]'}>
       {/*card img*/}
@@ -45,7 +44,7 @@ export default function ProductCard({
           }
           return [...prev, {...product, quantity: 1}]
         })}><Image src={image} width={290} height={300} alt={title}/></Link>
-        <Image src={liked ? wishActive : wishlist} alt={"Add to wishlist"}
+        <Image src={liked ? wishActive : wishlist} alt={"Add to wishlist"} onClick={() => setLiked(prev => !prev)}
                className={`absolute top-3 right-3 ${liked ? 'bg-[#D42620]' : 'bg-[#00000099]'}  w-[3rem] h-[3rem] p-[6px] rounded-full cursor-pointer hover:bg-[#D42620] transition-all`}/>
       </div>
       <div>

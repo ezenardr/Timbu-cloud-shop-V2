@@ -31,9 +31,10 @@ function ProductsList({page}: { page: number }) {
         })}
       </ul>
 
-      {products.previous_page && <Link href={products.previous_page} className={'btn-primary'}>Previous</Link>}
-      {products.next_page && <Link href={products.next_page} className={'btn-primary'}>Next</Link>}
-      {/*<Link href={'/products'} className={'btn-primary'}>View more</Link>*/}
+      <div className={'flex gap-12'}>
+        {products.previous_page && <Link href={products.previous_page} className={'btn-primary'}>Previous</Link>}
+        {products.next_page && <Link href={products.next_page} className={'btn-primary'}>Next</Link>}
+      </div>
     </>
   );
 }

@@ -1,12 +1,6 @@
 'use client'
 import React, {useContext} from 'react';
-import pairTrainerblue from "@/assets/img/pair-trainers-blue.png";
 import Image from "next/image";
-import InformationsCard from "@/components/ui/InformationsCard";
-import mail from "@/assets/icons/mail-at-sign-01.svg"
-import contact from "@/assets/icons/contact.svg"
-import phone from "@/assets/icons/smart-phone-02.svg"
-import delivery from "@/assets/icons/delivery-tracking-01.svg"
 import {Link} from 'next-view-transitions'
 import ModalPayment from "@/components/ui/ModalPayment";
 import CheckoutSuccess from "@/components/ui/CheckoutSuccess";
@@ -16,7 +10,7 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
   const isModal = searchParams.modal || false
   const isSuccess = searchParams.success || false
   // @ts-ignore
-  const {items, setItems} = useContext(CartContext)
+  const {items} = useContext(CartContext)
   const totalPrice = items.reduce((total: any, item: any) => total + item.current_price[0].HTG[0] * item.quantity, 0);
   let USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -44,14 +38,15 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
               <span className={'font-medium text-[1.9rem] text-[#2a2a2a]'}>Order list</span>
               <Link href={'/cart'} className={'font-semibold text-primary cursor-pointer text-[1.5rem]'}>Edit</Link>
             </div>
-            {items.map(({name, current_price, quantity}: any, key: number) => {
+            {items.map(({name, current_price, quantity, photos}: any, key: number) => {
               const price = current_price[0].HTG[0]
+              const imageUrl = photos[0]?.url
               return (
                 <li key={key}
                     className={"flex flex-col lg:flex-row lg:items-center border border-[#f9f9f9] py-8 px-2 lg:p-8 rounded-[8px] justify-between"}>
                   <div className={"flex gap-4 lg:gap-8 items-center relative"}>
-                    <div className={'p-10 bg-[#eaeaea] rounded-[1rem]'}>
-                      <Image width={80} height={100} src={pairTrainerblue} alt={"new black sneakers isolated"}
+                    <div className={'p-10 bg-white rounded-[1rem]'}>
+                      <Image width={80} height={100} src={`https://api.timbu.cloud/images/${imageUrl}`} alt={name}
                              className={"hover:scale-110 transition-all "}/>
                     </div>
                     <div className={'flex flex-col gap-4'}>
@@ -68,15 +63,15 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
             })}
           </ul>
           {/*  informations*/}
-          <InformationsCard title={"Personal Information"}>
-            <div className={'flex gap-4 items-center'}><Image src={contact} alt={'mail icon'}/>Ada Dennis</div>
-            <div className={'flex gap-4 items-center'}><Image src={mail} alt={'mail icon'}/>ada@gmail.com</div>
-            <div className={'flex gap-4 items-center'}><Image src={phone} alt={'mail icon'}/>09100000000</div>
-          </InformationsCard>
-          <InformationsCard title={"Delivery option"}>
-            <div className={'flex gap-4 items-center'}><Image src={delivery} alt={'mail icon'}/>Pick up point</div>
-            <div className={'flex gap-4 items-center justify-end'}>Ikeja, Lagos</div>
-          </InformationsCard>
+          {/*<InformationsCard title={"Personal Information"}>*/}
+          {/*  <div className={'flex gap-4 items-center'}><Image src={contact} alt={'mail icon'}/>Ada Dennis</div>*/}
+          {/*  <div className={'flex gap-4 items-center'}><Image src={mail} alt={'mail icon'}/>ada@gmail.com</div>*/}
+          {/*  <div className={'flex gap-4 items-center'}><Image src={phone} alt={'mail icon'}/>09100000000</div>*/}
+          {/*</InformationsCard>*/}
+          {/*<InformationsCard title={"Delivery option"}>*/}
+          {/*  <div className={'flex gap-4 items-center'}><Image src={delivery} alt={'mail icon'}/>Pick up point</div>*/}
+          {/*  <div className={'flex gap-4 items-center justify-end'}>Ikeja, Lagos</div>*/}
+          {/*</InformationsCard>*/}
 
         </div>
         <div className={'flex-1'}>

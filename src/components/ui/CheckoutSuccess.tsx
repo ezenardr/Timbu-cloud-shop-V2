@@ -1,9 +1,13 @@
-import React from 'react';
+'use client'
+import React, {useContext} from 'react';
 import success from "@/assets/icons/success.svg"
 import Image from "next/image";
 import {Link} from "next-view-transitions";
+import {CartContext} from "@/lib/CartProvider";
 
 function CheckoutSuccess() {
+  // @ts-ignore
+  const {setItems} = useContext(CartContext)
   return (
     <div
       className={'fixed top-0 left-0 w-full h-dvh bg-white z-[999999] flex items-center justify-center'}>
@@ -13,7 +17,8 @@ function CheckoutSuccess() {
         <p className={'text-[1.5rem] text-[#707070] text-center'}>You have successfully placed an order. Details of your
           order has
           been sent to your email. </p>
-        <Link href={'/products'} className={'btn-primary w-full text-center mt-8'}>Okay</Link>
+        <Link href={'/products'} onClick={() => setItems([])}
+              className={'btn-primary w-full text-center mt-8'}>Okay</Link>
       </div>
     </div>
   );
