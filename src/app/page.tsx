@@ -13,9 +13,11 @@ import balenciaga from "@/assets/logos/balenciaga.svg"
 import Footer from "@/components/Footer";
 import React from "react";
 import {getProducts} from "@/actions/products";
+import {type ApiResponse} from "@/types/ApiResponse";
+import {Item} from "@/types/Item";
 
 export default async function Home() {
-  const products = await getProducts(16);
+  const products: ApiResponse = await getProducts(16);
   return (
     <>
       {/*Hero section*/}
@@ -159,9 +161,9 @@ export default async function Home() {
         <div className={"grid gap-[2rem] grid-cols-1 lg:grid-cols-4 items-center "}>
           <Image className={'lg:col-start-1 lg:col-end-3'} src={banner} alt={"Shoues banner new arrivals"}/>
           {/*card*/}
-          {products.items.slice(0, 2).map((product: any, key: number) => {
+          {products.items.slice(0, 2).map((product: Item, key) => {
             const imageUrl = product.photos[0]?.url
-            const price = product.current_price[0].HTG[0]
+            const price = product.current_price[0].HTG[0].toString()
             return (
               <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
                            subtitle={"Iconic Casual Brands"} title={product.name}
@@ -174,9 +176,9 @@ export default async function Home() {
 
         </div>
         <div className={"grid w-full gap-[2rem] min-h-[400px] grid-cols-1 lg:grid-cols-3 items-center "}>
-          {products.items.slice(3, 6).map((product: any, key: number) => {
+          {products.items.slice(3, 6).map((product: Item, key) => {
             const imageUrl = product.photos[0]?.url
-            const price = product.current_price[0].HTG[0]
+            const price = product.current_price[0].HTG[0].toString()
             return (
               <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
                            subtitle={"Iconic Casual Brands"} title={product.name}
@@ -193,9 +195,9 @@ export default async function Home() {
       <section className={"pt-[9.6rem] px-8 lg:px-24 flex flex-col gap-10 items-center justify-center"}>
         <h2 className={"font-medium text-[3.7rem] text-black"}>Our Special Offers</h2>
         <div className={"grid w-full gap-[2rem] min-h-[400px] grid-cols-1 lg:grid-cols-3 items-center "}>
-          {products.items.slice(6, 9).map((product: any, key: number) => {
+          {products.items.slice(6, 9).map((product: Item, key) => {
             const imageUrl = product.photos[0]?.url
-            const price = product.current_price[0].HTG[0]
+            const price = product.current_price[0].HTG[0].toString()
             return (
               <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
                            subtitle={"Iconic Casual Brands"} title={product.name}
@@ -212,9 +214,9 @@ export default async function Home() {
       <section className={"pt-[9.6rem] px-8 lg:px-24 flex flex-col gap-10 items-center justify-center"}>
         <h2 className={"font-medium text-[3.7rem] text-black"}>Featured Sneakers</h2>
         <div className={"grid w-full gap-[2rem] grid-cols-1 lg:grid-cols-3 items-center "}>
-          {products.items.slice(9, 15).map((product: any, key: number) => {
+          {products.items.slice(9, 15).map((product: Item, key) => {
             const imageUrl = product.photos[0]?.url
-            const price = product.current_price[0].HTG[0]
+            const price = product.current_price[0].HTG[0].toString()
             return (
               <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
                            subtitle={"Iconic Casual Brands"} title={product.name}

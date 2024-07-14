@@ -7,6 +7,7 @@ import wishlist from "@/assets/icons/heart.svg"
 import wishActive from "@/assets/icons/heart-full.svg"
 import newPairWhite from "@/assets/img/new-pair-white-sneakers-isolated-white.png"
 import {CartContext} from "@/lib/CartProvider";
+import {Item} from "@/types/Item";
 
 export default function ProductCard({
                                       image = newPairWhite,
@@ -38,7 +39,7 @@ export default function ProductCard({
       <div
         className={"bg-white max-h-[300px] overflow-hidden flex items-center justify-center relative flex-1 rounded-[.8rem] mb-4"}>
         <Link href={link} onClick={() => setItems((prev: any) => {
-          const result = items.find((p: any) => p.id === product.id)
+          const result = items.find((p: Item) => p.id === product.id)
           if (result) {
             return [...prev]
           }
@@ -50,7 +51,7 @@ export default function ProductCard({
       <div>
         <span className={"text-[#2A2A2A] mb-4 text-[1.2rem] "}>{subtitle}</span> <br/>
         <Link href={link} className={"font-medium text-[1.9rem]"} onClick={() => setItems((prev: any) => {
-          const result = items.find((p: any) => p.id === product.id)
+          const result = items.find((p: Item) => p.id === product.id)
           if (result) {
             return [...prev]
           }
@@ -64,8 +65,8 @@ export default function ProductCard({
           <div className={"flex gap-2 font-medium text-[1.9rem]"}>
             <p>{USDollar.format(Number(price))}</p>
           </div>
-          <button onClick={() => setItems((prev: any) => {
-            const result = items.find((p: any) => p.id === product.id)
+          <button onClick={() => setItems((prev: Item[]) => {
+            const result = items.find((p: Item) => p.id === product.id)
             if (result) {
               return [...prev]
             }

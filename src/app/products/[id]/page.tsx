@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import {dehydrate, HydrationBoundary, QueryClient} from "@tanstack/react-query";
 import {getProductById, getProducts} from "@/actions/products";
 import ProductComponent from "./ProductComponent";
+import {type ApiResponse} from "@/types/ApiResponse";
 
 async function Product({searchParams, params}: { searchParams: { [key: string]: string }; params: { id: string } }) {
   const product_id = params.id;
@@ -13,7 +14,7 @@ async function Product({searchParams, params}: { searchParams: { [key: string]: 
     queryKey: ["product"],
     queryFn: () => getProductById(product_id, org_id)
   })
-  const products = await getProducts(4)
+  const products: ApiResponse = await getProducts(4)
   return (
     <>
       <main className={"px-8 lg:px-24 mt-20 flex flex-col gap-12"}>
@@ -23,7 +24,7 @@ async function Product({searchParams, params}: { searchParams: { [key: string]: 
         <section className={'flex flex-col lg:items-center gap-10 pt-[9.6rem] pb-8'}>
           <h2 className={'text-[3.7rem] font-medium text-black text-center'}>More From Ego</h2>
           <ul className={'flex flex-col lg:flex-row gap-8'}>
-            {products.items.map((product:any, key:number) => {
+            {products.items.map((product: any, key: number) => {
               const price = product.current_price[0].HTG[0]
               const category = product.categories[0]?.name
               const imageUrl = product.photos[0]?.url

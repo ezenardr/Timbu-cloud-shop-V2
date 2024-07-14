@@ -5,13 +5,14 @@ import {Link} from 'next-view-transitions'
 import ModalPayment from "@/components/ui/ModalPayment";
 import CheckoutSuccess from "@/components/ui/CheckoutSuccess";
 import {CartContext} from "@/lib/CartProvider";
+import {type ItemCart} from "@/app/cart/page";
 
 function Checkout({searchParams}: { searchParams: { [key: string]: string | undefined } }) {
   const isModal = searchParams.modal || false
   const isSuccess = searchParams.success || false
   // @ts-ignore
-  const {items} = useContext(CartContext)
-  const totalPrice = items.reduce((total: any, item: any) => total + item.current_price[0].HTG[0] * item.quantity, 0);
+  const {items} = useContext<ItemCart[]>(CartContext)
+  const totalPrice = items.reduce((total: number, item: ItemCart) => total + item.current_price[0].HTG[0] * item.quantity, 0);
   let USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'HTG'
@@ -38,7 +39,7 @@ function Checkout({searchParams}: { searchParams: { [key: string]: string | unde
               <span className={'font-medium text-[1.9rem] text-[#2a2a2a]'}>Order list</span>
               <Link href={'/cart'} className={'font-semibold text-primary cursor-pointer text-[1.5rem]'}>Edit</Link>
             </div>
-            {items.map(({name, current_price, quantity, photos}: any, key: number) => {
+            {items.map(({name, current_price, quantity, photos}: ItemCart, key: number) => {
               const price = current_price[0].HTG[0]
               const imageUrl = photos[0]?.url
               return (
