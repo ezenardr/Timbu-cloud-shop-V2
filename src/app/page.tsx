@@ -165,7 +165,7 @@ export default async function Home() {
             return (
               <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
                            subtitle={"Iconic Casual Brands"} title={product.name}
-                           rating={"4.5 (100 sold)"} price={price} liked={false}
+                           rating={"4.5 (100 sold)"} price={price}
                            product={product}
                            link={`/products/${product.id}?org_id=${product.organization_id}`}/>
 
@@ -180,7 +180,7 @@ export default async function Home() {
             return (
               <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
                            subtitle={"Iconic Casual Brands"} title={product.name}
-                           rating={"4.5 (100 sold)"} price={price} liked={false}
+                           rating={"4.5 (100 sold)"} price={price}
                            product={product}
                            link={`/products/${product.id}?org_id=${product.organization_id}`}/>
 
@@ -199,7 +199,7 @@ export default async function Home() {
             return (
               <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
                            subtitle={"Iconic Casual Brands"} title={product.name}
-                           rating={"4.5 (100 sold)"} price={price} liked={false}
+                           rating={"4.5 (100 sold)"} price={price}
                            product={product}
                            link={`/products/${product.id}?org_id=${product.organization_id}`}/>
 
@@ -218,7 +218,7 @@ export default async function Home() {
             return (
               <ProductCard key={key} image={`https://api.timbu.cloud/images/${imageUrl}`}
                            subtitle={"Iconic Casual Brands"} title={product.name}
-                           rating={"4.5 (100 sold)"} price={price} liked={false}
+                           rating={"4.5 (100 sold)"} price={price}
                            product={product}
                            link={`/products/${product.id}?org_id=${product.organization_id}`}/>
 
